@@ -34,11 +34,15 @@
                 $total = 0;
                 	$i=0;
                     $user_id = $this->session->userdata('user_id');
-                	$expense = $this->db->get_where('table_income_expense', array('user_id'=>$user_id, 'ledgertype'=>'public'))->result();
+                	$expense = $this->db->get_where('table_income_expense', array('user_id'=>$user_id, 'ledgertype'=>'personal'))->result();
                 	foreach ($expense as $key => $value) {
                 		$i++;
+                        $class='';
+                        if($value->aprove_status ==2){
+                            $class='classRed'; 
+                        }
                  ?>
-                 <tr>
+                 <tr class="<?php echo $class; ?>">
                  	<td><?php echo $i; ?></td>
                  	<td><?php echo date('Y M, d', strtotime($value->date)); ?></td>
                  	<td><?php
@@ -58,7 +62,12 @@
                  	    $total += $value->total_price;
                  	 }
                  	 ?></td>
-                 	 <td><?php if($value->aprove_status ==2){echo 'Aproved'; }else{echo 'Pending';} ?></td>
+                 	 <td><?php if($value->aprove_status ==2){ ?>
+                        Aproved
+                      <?php }else{ ?>
+                        <a onclick="return confirm('Are You Sure!')" href="<?php echo base_url(); ?>Aprove-personal-Expense-bill.txt/<?php echo $this->MdFive->md5($value->ie_id); ?>" class="btn btn-info">Aprove</a>
+                        
+                     <?php } ?></td>
                  </tr>
              	<?php } ?>
              	<tr>
@@ -74,7 +83,12 @@
 <!--End-Action boxes-->    
   </div>
 </div>
-
+<style>
+    tr.classRed {
+    background: #f4bf88;
+    color: black;
+}
+</style>
 <!--end-main-container-part-->
 
 <?php $this->load->view('member/inc/footer'); ?>

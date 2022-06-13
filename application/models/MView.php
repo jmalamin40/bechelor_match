@@ -51,6 +51,7 @@ class MView extends CI_Model
 	    $this->db->select('total_price');
 	    $this->db->from('table_income_expense');
 	    $this->db->where('user_id', $id);
+	    $this->db->where('ledgertype', 'public');
 	    //$this->db->like('date', date('Y-m'));
 	    $redata= $this->db->get()->result();
 	    $total = 0;

@@ -7,7 +7,9 @@
 
 	<li class="<?php  if($menu == 'expenselist'){ ?> active <?php } ?>"><a href="<?php echo base_url(); ?>expense-bill.txt"><i class="icon-th"></i> <span>Expense List</span></a> </li>
 
-    <li class=""><a href="<?php echo base_url(); ?>Logout.txt"><i class="icon-signout"></i> <span>Logout</span></a> </li>
+  <li class="<?php  if($menu == 'addexpense'){ ?> active <?php } ?>"><a href="<?php echo base_url(); ?>Add-personal-expense-bill.txt"><i class="icon-pencil"></i> <span>Add Personal Expense</span></a> </li>
+  <li class="<?php  if($menu == 'expenselist'){ ?> active <?php } ?>"><a href="<?php echo base_url(); ?>expense-personal-bill.txt"><i class="icon-th"></i> <span>Personal Expense List</span></a> </li>
+  <li class=""><a href="<?php echo base_url(); ?>Logout.txt"><i class="icon-signout"></i> <span>Logout</span></a> </li>
 
     
    

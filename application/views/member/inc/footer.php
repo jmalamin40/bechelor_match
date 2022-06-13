@@ -109,7 +109,7 @@ function resetMenu() {
   //     });
   // });
 </script>
-<?php $resdata= $this->db->get_where('table_income_expense', array('match_id'=>$this->session->userdata('match_id'), 'user_id !='=>$this->session->userdata('user_id')))->result();
+<?php $resdata= $this->db->get_where('table_income_expense', array('ledgertype'=>'public', 'match_id'=>$this->session->userdata('match_id'), 'user_id !='=>$this->session->userdata('user_id')))->result();
 
     foreach($resdata as $v){
        $userdata= $this->MView->table_row('fullname', 'table_user', array('user_id'=>$v->user_id));
