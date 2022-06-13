@@ -60,5 +60,7 @@ $route['Logout.txt']           = 'Login/logout';
 $route['show-Details.txt/(:any)'] = 'Expense/showexpensedata/$1';
 $route['Aprove-Expense-bill.txt/(:any)'] = 'Expense/showexpensedataUpdate/$1';
 $route['expense-bill-List-by-User.txt/(:any)/(:any)'] = 'Expense/expenseByUser/$1/$2';
+$route['myProfile.txt'] = 'Profile/myProfile';
+$route['profile-update.txt'] ='Profile/profileUpdate';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
